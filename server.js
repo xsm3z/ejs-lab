@@ -60,4 +60,22 @@ app.get('/menu', (req, res) => {
   res.render('menu', { menu: RESTAURANT.menu });
 })
 
+app.get('/menu/mains', (req, res) => {
+  const category = 'mains';
+  const menuItems = RESTAURANT.menu.filter(item => item.category === category);
+  res.render('category', { category, menuItems });
+})
+
+app.get('/menu/sides', (req, res) => {
+  const category = 'sides';
+  const menuItems = RESTAURANT.menu.filter(item => item.category === category);
+  res.render('category', { category, menuItems });
+})
+
+app.get('/menu/desserts', (req, res) => {
+  const category = 'desserts';
+  const menuItems = RESTAURANT.menu.filter(item => item.category === category);
+  res.render('category', { category, menuItems });
+})
+
 app.listen(3000);
